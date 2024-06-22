@@ -3,9 +3,9 @@ import { useState } from 'react';
 const JobListing = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
   let description = job.description;
-  if (!showFullDescription) {
-    let i = 90;
-    while (description[i] !== ' ') i--;
+  let i = 90;
+  if (description.length > i && !showFullDescription) {
+    while (description[i] !== ' ' && i > 10) i--;
     description = description.substring(0, i);
   }
 
