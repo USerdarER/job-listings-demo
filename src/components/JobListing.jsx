@@ -8,7 +8,7 @@ const JobListing = ({ job }) => {
   let i = 90;
   if (description.length > i && !showFullDescription) {
     while (description[i] !== ' ' && i > 10) i--;
-    description = description.substring(0, i);
+    description = description.substring(0, i) + '...';
   }
 
   return (
@@ -19,7 +19,7 @@ const JobListing = ({ job }) => {
           <h3 className='text-xl font-bold'>{job.title}</h3>
         </div>
 
-        <div className='mb-5'>{description}...</div>
+        <div className='mb-5'>{description}</div>
         <button onClick={() => setShowFullDescription((prevState) => !prevState)} className='text-indigo-500 mb-5 hover:text-indigo-600'>
           {showFullDescription ? 'Less' : 'More'}
         </button>
